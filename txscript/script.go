@@ -49,9 +49,7 @@ func parseMultSig(rawtx string) ([][]string, error) {
 	txidx := tx.TxHash()                   //交易hash
 	scripts := getPkScript(txidx.String()) //去输出中寻找锁定脚本
 
-	//txscript.Result = make([][]string, 0)
 	for index, value := range scripts {
-		//txscript.Result[index] = make([]string, 0)
 		temp := make([]string, 0)
 		temp = append(temp, hex.EncodeToString(tx.TxIn[index].SignatureScript))
 		txscript.Result = append(txscript.Result, temp)
